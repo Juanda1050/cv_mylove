@@ -1,0 +1,136 @@
+{
+  "header": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "education": "Educación",
+    "contact": "Contacto",
+    "themeLabel": "Cambiar tema",
+    "languageLabel": "Cambiar idioma",
+    "dark": "Oscuro",
+    "light": "Claro",
+    "navLabel": "Navegación principal"
+  },
+  "hero": {
+    "role": "Estudiante de Ingeniería en Tecnología de Software",
+    "location": "Monterrey, Nuevo León, México",
+    "summary": "Promuevo la equidad de género en STEM a través de formación en tecnología, liderazgo estudiantil y proyectos con impacto social.",
+    "ctaPrimary": "Contáctame",
+    "ctaSecondary": "Descargar CV",
+    "emailLabel": "Correo",
+    "phoneLabel": "Teléfono",
+    "detailsLabel": "Datos personales"
+  },
+  "section": {
+    "aboutTitle": "Sobre mí",
+    "experienceTitle": "Experiencia",
+    "skillsTitle": "Habilidades",
+    "coursesTitle": "Cursos y certificaciones",
+    "educationTitle": "Educación e idiomas",
+    "contactTitle": "Contacto"
+  },
+  "about": "Estudiante de 8° semestre de Ingeniería en Tecnología de Software en la Universidad Autónoma de Nuevo León, con experiencia en enseñanza tecnológica, especialmente en programación web, desarrollo móvil y robótica para niñas y adolescentes. Comprometida con el aprendizaje continuo mediante cursos y certificaciones. Cuento con habilidades de liderazgo, trabajo en equipo y gestión del tiempo fortalecidas como presidenta de un grupo estudiantil. Me enfoco en generar impacto y aportar valor en cada proyecto.",
+  "experience": [
+    {
+      "title": "Facilitadora en Tecnología – Programa Tecnolochicas",
+      "organization": "Fundación Televisa",
+      "period": "Noviembre 2023 – Diciembre 2024",
+      "items": [
+        "Impartí clases de desarrollo web, robótica, desarrollo de apps móviles e inteligencia artificial a alumnas de secundaria y preparatoria.",
+        "Promoví la equidad de género en tecnología, impactando a más de 250 estudiantes en un año.",
+        "Obtuve certificaciones para impartir cursos de HTML y CSS, Desarrollo de Apps, Introducción a la Robótica e Introducción a la Inteligencia Artificial."
+      ]
+    },
+    {
+      "title": "Presidenta del Grupo Estudiantil de Ingeniería en Tecnología de Software",
+      "organization": "Universidad Autónoma de Nuevo León",
+      "period": "Julio 2023 – Actual",
+      "items": [
+        "Lideré un grupo estudiantil para impulsar el desarrollo académico, profesional y social de la comunidad universitaria.",
+        "Planifiqué y coordiné eventos académicos como conferencias, talleres y ferias tecnológicas.",
+        "Diseñé estrategias para fortalecer el sentido de pertenencia e incrementar la participación activa de integrantes."
+      ]
+    }
+  ],
+  "skills": {
+    "office": {
+      "title": "Herramientas de oficina y productividad",
+      "items": [
+        "Microsoft Office (Excel avanzado, PowerPoint, Word)",
+        "Power BI (dashboards y reportes dinámicos)",
+        "Power Apps (automatización de procesos de negocio)"
+      ]
+    },
+    "design": {
+      "title": "UI/UX y diseño",
+      "items": [
+        "Figma (prototipos, wireframes y diseño centrado en el usuario)"
+      ]
+    },
+    "programming": {
+      "title": "Programación y tecnologías",
+      "items": [
+        "Java (POO, herencia, polimorfismo, colecciones, archivos, genéricos, programación funcional, asincronía, multihilo, microservicios, acceso a BD y streams reactivos)",
+        "JavaScript",
+        "C",
+        "C++",
+        "Python",
+        "HTML",
+        "CSS"
+      ]
+    },
+    "databases": {
+      "title": "Bases de datos",
+      "items": [
+        "SQL (joins, agrupaciones, subconsultas y vistas)",
+        "MongoDB (Mongo Atlas y modelado NoSQL)"
+      ]
+    },
+    "data": {
+      "title": "Análisis de datos y machine learning",
+      "items": [
+        "Estadística descriptiva e inferencial",
+        "Visualización de datos (Power BI, Matplotlib, Seaborn)",
+        "Machine learning (modelos supervisados y no supervisados, regresión y clasificación)",
+        "NLP"
+      ]
+    },
+    "soft": {
+      "title": "Habilidades blandas",
+      "items": [
+        "Liderazgo",
+        "Organización y gestión del tiempo",
+        "Habilidades sociales y trabajo en equipo",
+        "Proactividad y aprendizaje continuo",
+        "Resolución de problemas",
+        "Comunicación efectiva"
+      ]
+    }
+  },
+  "courses": [
+    "Data Science — Noviembre 2024 - Febrero 2025 (Bedu)",
+    "Business English — Agosto 2024 (Santander Academy)",
+    "Introducción a la Inteligencia Artificial — Junio 2024 (Fundación Televisa, Microsoft)",
+    "Introducción a la Robótica — Agosto 2024 (Fundación Televisa, Microsoft)",
+    "Desarrollo de Apps — Diciembre 2023 (Fundación Televisa, Microsoft)",
+    "HTML y CSS para Principiantes — Diciembre 2023 (Fundación Televisa, Microsoft)",
+    "Frontend by Tecnolochicas Pro — Diciembre 2023 (Fundación Televisa, Microsoft)"
+  ],
+  "education": {
+    "degree": "Ingeniería en Tecnología de Software",
+    "school": "Universidad Autónoma de Nuevo León",
+    "faculty": "Facultad de Ingeniería Mecánica y Eléctrica",
+    "period": "2022 – Actual",
+    "languagesTitle": "Idiomas",
+    "languages": [
+      "Español (Nativo)",
+      "Inglés (B2)"
+    ]
+  },
+  "contact": {
+    "text": "Estoy disponible para colaborar en proyectos tecnológicos, iniciativas STEM y oportunidades de crecimiento profesional.",
+    "email": "Enviar correo",
+    "phone": "Llamar"
+  },
+  "footer": "Portafolio de Mariana Lizette Tovar Salazar"
+}
