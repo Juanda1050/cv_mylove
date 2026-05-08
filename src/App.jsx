@@ -79,8 +79,8 @@ function App() {
       </header>
 
       <main id="home">
-        <section className="hero section card" aria-labelledby="hero-title">
-          <div>
+        <section className="hero hero-card section card" aria-labelledby="hero-title">
+          <div className="hero-copy">
             <Badge>{t('hero.role')}</Badge>
             <h1 id="hero-title">Mariana Lizette Tovar Salazar</h1>
             <p className="lead">{t('hero.summary')}</p>
@@ -107,7 +107,14 @@ function App() {
             </div>
           </div>
           <div className="profile-wrap">
-            <img src={PROFILE} alt="Mariana Lizette Tovar Salazar" className="profile" />
+            <div className="profile-frame">
+              <img
+                src={PROFILE}
+                alt="Mariana Lizette Tovar Salazar"
+                className="profile"
+                decoding="async"
+              />
+            </div>
           </div>
         </section>
 
