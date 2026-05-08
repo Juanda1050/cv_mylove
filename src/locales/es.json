@@ -6,7 +6,7 @@
     "education": "Educación",
     "contact": "Contacto",
     "themeLabel": "Cambiar tema",
-    "languageLabel": "Cambiar idioma",
+    "languageLabel": "Idioma",
     "dark": "Oscuro",
     "light": "Claro",
     "navLabel": "Navegación principal"
@@ -17,6 +17,9 @@
     "summary": "Promuevo la equidad de género en STEM a través de formación en tecnología, liderazgo estudiantil y proyectos con impacto social.",
     "ctaPrimary": "Contáctame",
     "ctaSecondary": "Descargar CV",
+    "documentLabel": "Documento",
+    "documentSpanish": "CV en español",
+    "documentEnglish": "Resume en inglés",
     "emailLabel": "Correo",
     "phoneLabel": "Teléfono",
     "detailsLabel": "Datos personales"
@@ -29,7 +32,7 @@
     "educationTitle": "Educación e idiomas",
     "contactTitle": "Contacto"
   },
-  "about": "Estudiante de 8° semestre de Ingeniería en Tecnología de Software en la Universidad Autónoma de Nuevo León, con experiencia en enseñanza tecnológica, especialmente en programación web, desarrollo móvil y robótica para niñas y adolescentes. Comprometida con el aprendizaje continuo mediante cursos y certificaciones. Cuento con habilidades de liderazgo, trabajo en equipo y gestión del tiempo fortalecidas como presidenta de un grupo estudiantil. Me enfoco en generar impacto y aportar valor en cada proyecto.",
+  "about": "Estudiante de 10° semestre de Ingeniería en Tecnología de Software en la Universidad Autónoma de Nuevo León, con experiencia en enseñanza tecnológica, especialmente en programación web, desarrollo móvil y robótica para niñas y adolescentes. Comprometida con el aprendizaje continuo mediante cursos y certificaciones. Cuento con habilidades de liderazgo, trabajo en equipo y gestión del tiempo fortalecidas como presidenta de un grupo estudiantil. Me enfoco en generar impacto y aportar valor en cada proyecto.",
   "experience": [
     {
       "title": "Facilitadora en Tecnología – Programa Tecnolochicas",
@@ -68,15 +71,44 @@
       ]
     },
     "programming": {
-      "title": "Programación y tecnologías",
-      "items": [
-        "Java (POO, herencia, polimorfismo, colecciones, archivos, genéricos, programación funcional, asincronía, multihilo, microservicios, acceso a BD y streams reactivos)",
-        "JavaScript",
-        "C",
-        "C++",
-        "Python",
-        "HTML",
-        "CSS"
+      "title": "Lenguajes de programación",
+      "description": "Lenguajes y bases técnicas con los que he trabajado en proyectos académicos, docencia y desarrollo de soluciones.",
+      "languages": [
+        {
+          "name": "Java",
+          "level": 92,
+          "detail": "POO, colecciones, genéricos, asincronía, microservicios y acceso a bases de datos"
+        },
+        {
+          "name": "JavaScript",
+          "level": 88,
+          "detail": "Interfaces web, lógica de interacción y desarrollo frontend"
+        },
+        {
+          "name": "Python",
+          "level": 80,
+          "detail": "Análisis de datos, automatización y machine learning"
+        },
+        {
+          "name": "C++",
+          "level": 74,
+          "detail": "Estructuras, fundamentos de programación y resolución algorítmica"
+        },
+        {
+          "name": "C",
+          "level": 70,
+          "detail": "Lógica base, memoria y programación estructurada"
+        },
+        {
+          "name": "HTML",
+          "level": 95,
+          "detail": "Maquetación semántica y estructura de interfaces"
+        },
+        {
+          "name": "CSS",
+          "level": 91,
+          "detail": "Diseño responsivo, composición visual y estilos modernos"
+        }
       ]
     },
     "databases": {
@@ -95,8 +127,8 @@
         "NLP"
       ]
     },
-    "soft": {
-      "title": "Habilidades blandas",
+    "strengths": {
+      "title": "Fortalezas profesionales",
       "items": [
         "Liderazgo",
         "Organización y gestión del tiempo",
@@ -121,6 +153,7 @@
     "school": "Universidad Autónoma de Nuevo León",
     "faculty": "Facultad de Ingeniería Mecánica y Eléctrica",
     "period": "2022 – Actual",
+    "languageLevelsTitle": "Niveles",
     "languagesTitle": "Idiomas",
     "languages": [
       "Español (Nativo)",
@@ -128,7 +161,7 @@
     ]
   },
   "contact": {
-    "text": "Estoy disponible para colaborar en proyectos tecnológicos, iniciativas STEM y oportunidades de crecimiento profesional.",
+    "text": "Estoy abierta a colaborar en proyectos tecnológicos, iniciativas con impacto y oportunidades profesionales donde pueda aportar valor desde el desarrollo, la enseñanza y el liderazgo.",
     "email": "Enviar correo",
     "phone": "Llamar"
   },

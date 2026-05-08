@@ -1,4 +1,13 @@
-import { ChevronDown, Languages } from 'lucide-react'
+import { Languages } from 'lucide-react'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from './ui/select'
 
 const LANGUAGE_OPTIONS = [
   { value: 'es', label: 'Español', short: 'ES' },
@@ -11,34 +20,33 @@ export function LanguageSwitcher({ t, language, onChange }) {
 
   return (
     <div className="language-switcher">
-      <label className="control control-select" htmlFor="language-switcher">
-        <span className="control-icon" aria-hidden="true">
-          <Languages size={16} aria-hidden="true" />
-        </span>
-        <span className="control-copy">
-          <span className="control-label">{t('header.languageLabel')}</span>
-          <span className="control-value">{currentLanguage.label}</span>
-        </span>
-        <span className="control-current" aria-hidden="true">
-          {currentLanguage.short}
-        </span>
-        <span className="control-chevron" aria-hidden="true">
-          <ChevronDown size={16} aria-hidden="true" />
-        </span>
-        <select
-          id="language-switcher"
-          className="control-native-select"
-          value={language}
-          onChange={(event) => onChange(event.target.value)}
-          aria-label={t('header.languageLabel')}
+      <span id="language-switcher-label" className="sr-only">
+        {t('header.languageLabel')}
+      </span>
+      <Select value={currentLanguage.value} onValueChange={onChange}>
+        <SelectTrigger
+          className="control control-select control-select-compact language-switcher-trigger"
+          aria-labelledby="language-switcher-label"
         >
-          {LANGUAGE_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </label>
+          <span className="control-icon language-switcher-icon" aria-hidden="true">
+            <Languages size={14} aria-hidden="true" />
+          </span>
+          <SelectValue placeholder={t('header.languageLabel')} />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>{t('header.languageLabel')}</SelectLabel>
+            {LANGUAGE_OPTIONS.map((option) => (
+              <SelectItem key={option.value} value={option.value}>
+                <span className="language-switcher-option">
+                  <span>{option.label}</span>
+                  <span className="language-switcher-short">{option.short}</span>
+                </span>
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </div>
   )
 }

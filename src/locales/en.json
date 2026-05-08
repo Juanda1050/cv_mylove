@@ -6,7 +6,7 @@
     "education": "Education",
     "contact": "Contact",
     "themeLabel": "Toggle theme",
-    "languageLabel": "Change language",
+    "languageLabel": "Language",
     "dark": "Dark",
     "light": "Light",
     "navLabel": "Main navigation"
@@ -17,6 +17,9 @@
     "summary": "I promote gender equity in STEM through technology education, student leadership, and projects with social impact.",
     "ctaPrimary": "Contact me",
     "ctaSecondary": "Download CV",
+    "documentLabel": "Document",
+    "documentSpanish": "Spanish CV",
+    "documentEnglish": "English resume",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
     "detailsLabel": "Personal details"
@@ -68,15 +71,44 @@
       ]
     },
     "programming": {
-      "title": "Programming & technologies",
-      "items": [
-        "Java (OOP, inheritance, polymorphism, collections, files, generics, functional programming, asynchrony, multithreading, microservices, DB access, reactive streams)",
-        "JavaScript",
-        "C",
-        "C++",
-        "Python",
-        "HTML",
-        "CSS"
+      "title": "Programming languages",
+      "description": "Languages and technical foundations I have used in academic work, teaching, and solution building.",
+      "languages": [
+        {
+          "name": "Java",
+          "level": 92,
+          "detail": "OOP, collections, generics, asynchrony, microservices, and database access"
+        },
+        {
+          "name": "JavaScript",
+          "level": 88,
+          "detail": "Web interfaces, interaction logic, and frontend development"
+        },
+        {
+          "name": "Python",
+          "level": 80,
+          "detail": "Data analysis, automation, and machine learning"
+        },
+        {
+          "name": "C++",
+          "level": 74,
+          "detail": "Data structures, programming fundamentals, and algorithmic problem solving"
+        },
+        {
+          "name": "C",
+          "level": 70,
+          "detail": "Core logic, memory, and structured programming"
+        },
+        {
+          "name": "HTML",
+          "level": 95,
+          "detail": "Semantic markup and interface structure"
+        },
+        {
+          "name": "CSS",
+          "level": 91,
+          "detail": "Responsive design, visual composition, and modern styling"
+        }
       ]
     },
     "databases": {
@@ -95,8 +127,8 @@
         "NLP"
       ]
     },
-    "soft": {
-      "title": "Soft skills",
+    "strengths": {
+      "title": "Professional strengths",
       "items": [
         "Leadership",
         "Organization and time management",
@@ -121,6 +153,7 @@
     "school": "Universidad Autónoma de Nuevo León",
     "faculty": "Faculty of Mechanical and Electrical Engineering",
     "period": "2022 – Present",
+    "languageLevelsTitle": "Levels",
     "languagesTitle": "Languages",
     "languages": [
       "Spanish (Native)",
@@ -128,7 +161,7 @@
     ]
   },
   "contact": {
-    "text": "I am available to collaborate on technology projects, STEM initiatives, and professional growth opportunities.",
+    "text": "I am open to collaborating on technology projects, impact-driven initiatives, and professional opportunities where I can contribute through development, teaching, and leadership.",
     "email": "Send email",
     "phone": "Call"
   },

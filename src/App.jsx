@@ -1,12 +1,18 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
+  BrainCircuit,
   BriefcaseBusiness,
-  GraduationCap,
+  Code2,
+  Database,
+  Globe2,
   Mail,
   MapPin,
+  Palette,
   Phone,
+  School,
   Sparkles,
+  UsersRound,
 } from 'lucide-react'
 import { Badge } from './components/ui/badge'
 import { Button } from './components/ui/button'
@@ -17,37 +23,134 @@ import {
   CardHeader,
   CardTitle,
 } from './components/ui/card'
+import { Progress } from './components/ui/progress'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from './components/ui/select'
 import { LanguageSwitcher } from './components/language-switcher'
 import { ThemeToggle } from './components/theme-toggle'
 
 const EMAIL = 'salazarmariana210@gmail.com'
 const PHONE = '+52 81 2325 5640'
 const PROFILE = '/images/profile.jpg'
-const CV_PLACEHOLDER = '/images/cv-mariana.pdf'
+const DOCUMENTS = {
+  es: '/images/CV_MarianaLizetteTovarSalazar.pdf',
+  en: '/images/Resume_MarianaLizetteTovarSalazar.pdf',
+}
+
+const SKILL_CARD_META = {
+  office: { icon: BriefcaseBusiness, accent: 'rose' },
+  design: { icon: Palette, accent: 'gold' },
+  databases: { icon: Database, accent: 'violet' },
+  data: { icon: BrainCircuit, accent: 'sky' },
+  strengths: { icon: UsersRound, accent: 'mint' },
+}
 
 function App() {
   const { t, i18n } = useTranslation()
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
+  const [downloadMenuKey, setDownloadMenuKey] = useState(0)
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  useEffect(() => {
+    document.documentElement.lang = i18n.language
+  }, [i18n.language])
+
   const skills = useMemo(() => {
-    const groups = t('skills', { returnObjects: true })
-    return Object.values(groups)
+    return t('skills', { returnObjects: true })
   }, [t])
+
+  const programmingSkills = skills.programming
+  const skillCards = useMemo(
+    () =>
+      Object.entries(SKILL_CARD_META).map(([key, meta]) => ({
+        ...meta,
+        ...skills[key],
+        key,
+      })),
+    [skills],
+  )
 
   const experiences = t('experience', { returnObjects: true })
   const courses = t('courses', { returnObjects: true })
   const languages = t('education.languages', { returnObjects: true })
 
+  const mapLanguageLevelToProgress = (level) => {
+    const normalizedLevel = (level || '').trim().toUpperCase()
+
+    if (!normalizedLevel) return 60
+    if (normalizedLevel.includes('NATIVE') || normalizedLevel.includes('NATIVO')) return 100
+    if (normalizedLevel.includes('C2')) return 95
+    if (normalizedLevel.includes('C1')) return 90
+    if (normalizedLevel.includes('B2')) return 80
+    if (normalizedLevel.includes('B1')) return 68
+    if (normalizedLevel.includes('A2')) return 52
+    if (normalizedLevel.includes('A1')) return 36
+    return 60
+  }
+
+  const formattedLanguages = useMemo(
+    () =>
+      languages.map((language) => {
+        const match = language.match(/^(.*?)\s*\((.*?)\)$/)
+
+        return {
+          name: match?.[1] ?? language,
+          level: match?.[2] ?? '',
+          progress: mapLanguageLevelToProgress(match?.[2] ?? ''),
+          raw: language,
+        }
+      }),
+    [languages],
+  )
+  const formattedCourses = useMemo(
+    () =>
+      courses.map((course) => {
+        const [title, details = ''] = course.split(' — ')
+        const providerMatch = details.match(/\(([^)]+)\)\s*$/)
+        const provider = providerMatch?.[1] ?? ''
+        const period = details.replace(/\s*\([^)]+\)\s*$/, '')
+
+        return {
+          title,
+          period,
+          provider,
+          raw: course,
+        }
+      }),
+    [courses],
+  )
+
   const handleLanguageChange = (nextLanguage) => {
     i18n.changeLanguage(nextLanguage)
     localStorage.setItem('language', nextLanguage)
-    document.documentElement.lang = nextLanguage
   }
+
+  const handleDocumentChange = (nextDocument) => {
+    const nextUrl = DOCUMENTS[nextDocument] ?? DOCUMENTS.es
+
+    localStorage.setItem('downloadDocument', nextDocument)
+    const anchor = document.createElement('a')
+    anchor.href = nextUrl
+    anchor.download = ''
+    anchor.click()
+    setDownloadMenuKey((currentKey) => currentKey + 1)
+  }
+
+  const documentOptions = useMemo(
+    () => [
+      { value: 'es', label: t('hero.documentSpanish') },
+      { value: 'en', label: t('hero.documentEnglish') },
+    ],
+    [t],
+  )
 
   return (
     <div className="page">
@@ -101,9 +204,18 @@ function App() {
               <Button type="button" onClick={() => window.location.assign('#contact')}>
                 {t('hero.ctaPrimary')}
               </Button>
-              <a className="btn btn-outline" href={CV_PLACEHOLDER}>
-                {t('hero.ctaSecondary')}
-              </a>
+              <Select key={downloadMenuKey} onValueChange={handleDocumentChange}>
+                <SelectTrigger className="btn btn-outline download-menu-trigger" aria-label={t('hero.documentLabel')}>
+                  <span>{t('hero.ctaSecondary')}</span>
+                </SelectTrigger>
+                <SelectContent>
+                  {documentOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
           <div className="profile-wrap">
@@ -132,8 +244,8 @@ function App() {
           <div className="grid two">
             {experiences.map((job) => (
               <Card key={job.title}>
-                <CardHeader>
-                  <CardTitle>{job.title}</CardTitle>
+                <CardHeader className="header-rose">
+                  <CardTitle className="card-title-rose">{job.title}</CardTitle>
                   <CardDescription>{job.organization}</CardDescription>
                   <Badge>{job.period}</Badge>
                 </CardHeader>
@@ -151,21 +263,65 @@ function App() {
 
         <section id="skills" className="section">
           <h2>{t('section.skillsTitle')}</h2>
-          <div className="grid three">
-            {skills.map((group) => (
-              <Card key={group.title}>
-                <CardHeader>
-                  <CardTitle>{group.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul>
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="skills-layout">
+            <Card className="skills-spotlight">
+              <CardHeader className="header-rose">
+                <CardTitle className="card-title-rose">
+                  <span className="skill-card-icon skill-card-icon-rose" aria-hidden="true">
+                    <Code2 size={18} aria-hidden="true" />
+                  </span>
+                  {programmingSkills.title}
+                </CardTitle>
+                <CardDescription>{programmingSkills.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="skill-bars">
+                  {programmingSkills.languages.map((item) => (
+                    <article key={item.name} className="skill-meter">
+                      <div className="skill-meter-header">
+                        <div>
+                          <strong>{item.name}</strong>
+                          <p>{item.detail}</p>
+                        </div>
+                        <span>{item.level}%</span>
+                      </div>
+                      <Progress value={item.level} aria-label={`${item.name} ${item.level}%`} />
+                    </article>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="skills-library">
+              <CardContent className="skills-library-content">
+                <div className="skills-cluster-grid">
+                  {skillCards.map((group) => {
+                    const Icon = group.icon
+
+                    return (
+                      <article key={group.key} className={`skills-cluster skills-cluster-${group.accent}`}>
+                        <header className="skills-cluster-header">
+                          <span
+                            className={`skill-card-icon skill-card-icon-${group.accent}`}
+                            aria-hidden="true"
+                          >
+                            <Icon size={18} aria-hidden="true" />
+                          </span>
+                          <h3>{group.title}</h3>
+                        </header>
+                        <ul className="skills-cluster-list">
+                          {group.items.map((item) => (
+                            <li key={item} className="skills-cluster-item">
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </article>
+                    )
+                  })}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
@@ -173,9 +329,16 @@ function App() {
           <h2>{t('section.coursesTitle')}</h2>
           <Card>
             <CardContent>
-              <ul className="compact-list">
-                {courses.map((course) => (
-                  <li key={course}>{course}</li>
+              <ul className="course-list">
+                {formattedCourses.map((course) => (
+                  <li key={course.raw} className="course-item">
+                    <div className="course-marker" aria-hidden="true" />
+                    <div className="course-copy">
+                      <strong>{course.title}</strong>
+                      <p>{course.period}</p>
+                    </div>
+                    <Badge className="course-badge">{course.provider}</Badge>
+                  </li>
                 ))}
               </ul>
             </CardContent>
@@ -184,29 +347,54 @@ function App() {
 
         <section id="education" className="section">
           <h2>{t('section.educationTitle')}</h2>
-          <div className="grid two">
-            <Card>
-              <CardHeader>
-                <CardTitle>
-                  <GraduationCap size={18} aria-hidden="true" /> {t('education.degree')}
+          <div className="education-layout">
+            <Card className="education-card education-card-main">
+              <CardHeader className="header-rose education-header-compact">
+                <CardTitle className="card-title-rose education-title-row">
+                  <span className="education-title-main">
+                    <span className="skill-card-icon skill-card-icon-rose" aria-hidden="true">
+                      <School size={20} aria-hidden="true" />
+                    </span>
+                    <span className="education-title-text">{t('education.degree')}</span>
+                  </span>
+                  <Badge className="education-period-badge">{t('education.period')}</Badge>
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p>{t('education.school')}</p>
-                <p>{t('education.faculty')}</p>
-                <Badge>{t('education.period')}</Badge>
+              <CardContent className="education-content-compact">
+                <div className="education-meta-row">
+                  <CardDescription className="education-meta">
+                    <span>{t('education.faculty')}</span>
+                    <span>{t('education.school')}</span>
+                  </CardDescription>
+                </div>
               </CardContent>
             </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>
-                  <BriefcaseBusiness size={18} aria-hidden="true" /> {t('education.languagesTitle')}
+
+            <Card className="education-card education-card-languages">
+              <CardHeader className="header-sky language-header-compact">
+                <CardTitle className="card-title-sky">
+                  <span className="skill-card-icon skill-card-icon-sky" aria-hidden="true">
+                    <Globe2 size={20} aria-hidden="true" />
+                  </span>
+                  {t('education.languageLevelsTitle')}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul>
-                  {languages.map((item) => (
-                    <li key={item}>{item}</li>
+              <CardContent className="levels-content-compact">
+                <ul className="language-grid">
+                  {formattedLanguages.map((item) => (
+                    <li key={item.raw} className="language-item">
+                      <div className="language-item-header">
+                        <div className="language-copy">
+                          <strong>{item.name}</strong>
+                        </div>
+                        <Badge className="language-level-chip">{item.level}</Badge>
+                      </div>
+                      <Progress
+                        value={item.progress}
+                        aria-label={`${item.name} ${item.level}`}
+                        className="language-progress"
+                      />
+                    </li>
                   ))}
                 </ul>
               </CardContent>
@@ -216,15 +404,29 @@ function App() {
 
         <section id="contact" className="section">
           <h2>{t('section.contactTitle')}</h2>
-          <Card>
-            <CardContent>
-              <p>{t('contact.text')}</p>
-              <div className="hero-actions">
-                <a className="btn btn-default" href={`mailto:${EMAIL}`}>
-                  {t('contact.email')}
+          <Card className="contact-card">
+            <CardContent className="contact-content">
+              <div className="contact-copy">
+                <p>{t('contact.text')}</p>
+              </div>
+              <div className="contact-grid">
+                <a className="contact-method" href={`mailto:${EMAIL}`}>
+                  <span className="contact-method-icon" aria-hidden="true">
+                    <Mail size={18} aria-hidden="true" />
+                  </span>
+                  <span className="contact-method-copy">
+                    <strong>{t('hero.emailLabel')}</strong>
+                    <span>{EMAIL}</span>
+                  </span>
                 </a>
-                <a className="btn btn-secondary" href={`tel:${PHONE.replace(/\s+/g, '')}`}>
-                  {t('contact.phone')}
+                <a className="contact-method" href={`tel:${PHONE.replace(/\s+/g, '')}`}>
+                  <span className="contact-method-icon" aria-hidden="true">
+                    <Phone size={18} aria-hidden="true" />
+                  </span>
+                  <span className="contact-method-copy">
+                    <strong>{t('hero.phoneLabel')}</strong>
+                    <span>{PHONE}</span>
+                  </span>
                 </a>
               </div>
             </CardContent>

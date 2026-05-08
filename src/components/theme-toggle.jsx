@@ -12,7 +12,6 @@ export function ThemeToggle({ t, theme, onToggle }) {
       title={t('header.themeLabel')}
     >
       {isDark ? <Sun size={16} aria-hidden="true" /> : <Moon size={16} aria-hidden="true" />}
-      <span>{isDark ? t('header.light') : t('header.dark')}</span>
     </button>
   )
 }
