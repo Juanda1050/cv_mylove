@@ -1,4 +1,4 @@
-import { Languages } from 'lucide-react'
+import { ChevronDown, Languages } from 'lucide-react'
 
 const LANGUAGE_OPTIONS = [
   { value: 'es', label: 'Español', short: 'ES' },
@@ -6,6 +6,9 @@ const LANGUAGE_OPTIONS = [
 ]
 
 export function LanguageSwitcher({ t, language, onChange }) {
+  const currentLanguage =
+    LANGUAGE_OPTIONS.find((option) => option.value === language) ?? LANGUAGE_OPTIONS[0]
+
   return (
     <div className="language-switcher">
       <label className="control control-select" htmlFor="language-switcher">
@@ -14,22 +17,27 @@ export function LanguageSwitcher({ t, language, onChange }) {
         </span>
         <span className="control-copy">
           <span className="control-label">{t('header.languageLabel')}</span>
-          <select
-            id="language-switcher"
-            value={language}
-            onChange={(event) => onChange(event.target.value)}
-            aria-label={t('header.languageLabel')}
-          >
-            {LANGUAGE_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+          <span className="control-value">{currentLanguage.label}</span>
         </span>
         <span className="control-current" aria-hidden="true">
-          {LANGUAGE_OPTIONS.find((option) => option.value === language)?.short ?? 'ES'}
+          {currentLanguage.short}
         </span>
+        <span className="control-chevron" aria-hidden="true">
+          <ChevronDown size={16} aria-hidden="true" />
+        </span>
+        <select
+          id="language-switcher"
+          className="control-native-select"
+          value={language}
+          onChange={(event) => onChange(event.target.value)}
+          aria-label={t('header.languageLabel')}
+        >
+          {LANGUAGE_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
       </label>
     </div>
   )
