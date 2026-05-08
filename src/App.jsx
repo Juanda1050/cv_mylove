@@ -7,12 +7,14 @@ import {
   Database,
   Globe2,
   Mail,
+  Menu,
   MapPin,
   Palette,
   Phone,
   School,
   Sparkles,
   UsersRound,
+  X,
 } from 'lucide-react'
 import { Badge } from './components/ui/badge'
 import { Button } from './components/ui/button'
@@ -53,6 +55,7 @@ function App() {
   const { t, i18n } = useTranslation()
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
   const [downloadMenuKey, setDownloadMenuKey] = useState(0)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')
@@ -62,6 +65,17 @@ function App() {
   useEffect(() => {
     document.documentElement.lang = i18n.language
   }, [i18n.language])
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const skills = useMemo(() => {
     return t('skills', { returnObjects: true })
@@ -144,6 +158,10 @@ function App() {
     setDownloadMenuKey((currentKey) => currentKey + 1)
   }
 
+  const handleNavItemClick = () => {
+    setIsMobileMenuOpen(false)
+  }
+
   const documentOptions = useMemo(
     () => [
       { value: 'es', label: t('hero.documentSpanish') },
@@ -160,24 +178,36 @@ function App() {
         <a className="brand" href="#home">
           <Sparkles size={14} aria-hidden="true" /> Mariana
         </a>
-        <nav aria-label={t('header.navLabel')}>
-          <a href="#about">{t('header.about')}</a>
-          <a href="#experience">{t('header.experience')}</a>
-          <a href="#skills">{t('header.skills')}</a>
-          <a href="#education">{t('header.education')}</a>
-          <a href="#contact">{t('header.contact')}</a>
-        </nav>
-        <div className="controls">
-          <LanguageSwitcher
-            t={t}
-            language={i18n.language}
-            onChange={handleLanguageChange}
-          />
-          <ThemeToggle
-            t={t}
-            theme={theme}
-            onToggle={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          />
+        <button
+          type="button"
+          className="menu-toggle"
+          aria-label={t('header.navLabel')}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="main-navigation"
+          onClick={() => setIsMobileMenuOpen((currentValue) => !currentValue)}
+        >
+          {isMobileMenuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+        </button>
+        <div className={`topbar-panel ${isMobileMenuOpen ? 'is-open' : ''}`}>
+          <nav id="main-navigation" className="topbar-nav" aria-label={t('header.navLabel')}>
+            <a href="#about" onClick={handleNavItemClick}>{t('header.about')}</a>
+            <a href="#experience" onClick={handleNavItemClick}>{t('header.experience')}</a>
+            <a href="#skills" onClick={handleNavItemClick}>{t('header.skills')}</a>
+            <a href="#education" onClick={handleNavItemClick}>{t('header.education')}</a>
+            <a href="#contact" onClick={handleNavItemClick}>{t('header.contact')}</a>
+          </nav>
+          <div className="controls topbar-controls">
+            <LanguageSwitcher
+              t={t}
+              language={i18n.language}
+              onChange={handleLanguageChange}
+            />
+            <ThemeToggle
+              t={t}
+              theme={theme}
+              onToggle={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            />
+          </div>
         </div>
       </header>
 
