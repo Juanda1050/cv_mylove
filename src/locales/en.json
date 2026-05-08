@@ -1,0 +1,136 @@
+{
+  "header": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact",
+    "themeLabel": "Toggle theme",
+    "languageLabel": "Change language",
+    "dark": "Dark",
+    "light": "Light",
+    "navLabel": "Main navigation"
+  },
+  "hero": {
+    "role": "Software Technology Engineering Student",
+    "location": "Monterrey, Nuevo León, Mexico",
+    "summary": "I promote gender equity in STEM through technology education, student leadership, and projects with social impact.",
+    "ctaPrimary": "Contact me",
+    "ctaSecondary": "Download CV",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "detailsLabel": "Personal details"
+  },
+  "section": {
+    "aboutTitle": "About me",
+    "experienceTitle": "Experience",
+    "skillsTitle": "Skills",
+    "coursesTitle": "Courses & certifications",
+    "educationTitle": "Education & languages",
+    "contactTitle": "Contact"
+  },
+  "about": "8th-semester Software Technology Engineering student at Universidad Autónoma de Nuevo León, with experience teaching technology—especially web programming, mobile development, and robotics—to girls and teenagers. Strong commitment to continuous learning through courses and certifications. Leadership, teamwork, and time-management skills strengthened by serving as president of a student group. Focused on generating impact and adding value in every project.",
+  "experience": [
+    {
+      "title": "Technology Facilitator – Tecnolochicas Program",
+      "organization": "Fundación Televisa",
+      "period": "November 2023 – December 2024",
+      "items": [
+        "Taught web development, robotics, mobile app development, and AI classes to middle and high school girls.",
+        "Promoted gender equity in technology, impacting more than 250 students in one year.",
+        "Earned certifications to teach HTML/CSS for Beginners, App Development, Intro to Robotics, and Intro to AI."
+      ]
+    },
+    {
+      "title": "President of the Software Technology Engineering Student Group",
+      "organization": "Universidad Autónoma de Nuevo León",
+      "period": "July 2023 – Present",
+      "items": [
+        "Led a student group that fostered academic, professional, and social development in the university community.",
+        "Planned and coordinated academic events including conferences, workshops, and technology fairs.",
+        "Designed strategies to strengthen belonging and increase active member participation."
+      ]
+    }
+  ],
+  "skills": {
+    "office": {
+      "title": "Office tools & productivity",
+      "items": [
+        "Microsoft Office (advanced Excel, PowerPoint, Word)",
+        "Power BI (dashboards and dynamic reports)",
+        "Power Apps (business process automation)"
+      ]
+    },
+    "design": {
+      "title": "UI/UX & design",
+      "items": [
+        "Figma (prototyping, wireframes, user-centered design)"
+      ]
+    },
+    "programming": {
+      "title": "Programming & technologies",
+      "items": [
+        "Java (OOP, inheritance, polymorphism, collections, files, generics, functional programming, asynchrony, multithreading, microservices, DB access, reactive streams)",
+        "JavaScript",
+        "C",
+        "C++",
+        "Python",
+        "HTML",
+        "CSS"
+      ]
+    },
+    "databases": {
+      "title": "Databases",
+      "items": [
+        "SQL (joins, grouping, subqueries, views)",
+        "MongoDB (Mongo Atlas, NoSQL modeling)"
+      ]
+    },
+    "data": {
+      "title": "Data analysis & machine learning",
+      "items": [
+        "Descriptive and inferential statistics",
+        "Data visualization (Power BI, Matplotlib, Seaborn)",
+        "Machine learning (supervised and unsupervised models, regression, classification)",
+        "NLP"
+      ]
+    },
+    "soft": {
+      "title": "Soft skills",
+      "items": [
+        "Leadership",
+        "Organization and time management",
+        "Social skills and teamwork",
+        "Proactivity and continuous learning",
+        "Problem solving",
+        "Effective communication"
+      ]
+    }
+  },
+  "courses": [
+    "Data Science — November 2024 - February 2025 (Bedu)",
+    "Business English — August 2024 (Santander Academy)",
+    "Introduction to Artificial Intelligence — June 2024 (Fundación Televisa, Microsoft)",
+    "Introduction to Robotics — August 2024 (Fundación Televisa, Microsoft)",
+    "App Development — December 2023 (Fundación Televisa, Microsoft)",
+    "HTML and CSS for Beginners — December 2023 (Fundación Televisa, Microsoft)",
+    "Frontend by Tecnolochicas Pro — December 2023 (Fundación Televisa, Microsoft)"
+  ],
+  "education": {
+    "degree": "Software Technology Engineering",
+    "school": "Universidad Autónoma de Nuevo León",
+    "faculty": "Faculty of Mechanical and Electrical Engineering",
+    "period": "2022 – Present",
+    "languagesTitle": "Languages",
+    "languages": [
+      "Spanish (Native)",
+      "English (B2)"
+    ]
+  },
+  "contact": {
+    "text": "I am available to collaborate on technology projects, STEM initiatives, and professional growth opportunities.",
+    "email": "Send email",
+    "phone": "Call"
+  },
+  "footer": "Portfolio of Mariana Lizette Tovar Salazar"
+}
