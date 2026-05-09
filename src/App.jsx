@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   BrainCircuit,
@@ -37,6 +37,7 @@ import { ThemeToggle } from './components/theme-toggle'
 
 const EMAIL = 'salazarmariana210@gmail.com'
 const PHONE = '+52 81 2325 5640'
+const LINKEDIN = 'https://www.linkedin.com/in/mariana-salazar-36893229a/'
 const PROFILE = '/images/profile.jpg'
 const DOCUMENTS = {
   es: '/images/CV_MarianaLizetteTovarSalazar.pdf',
@@ -53,6 +54,7 @@ const SKILL_CARD_META = {
 
 function App() {
   const { t, i18n } = useTranslation()
+  const topbarRef = useRef(null)
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
   const [downloadMenuKey, setDownloadMenuKey] = useState(0)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -77,6 +79,35 @@ function App() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return undefined
+    }
+
+    const handlePointerDown = (event) => {
+      if (
+        !topbarRef.current?.contains(event.target) &&
+        !event.target.closest('[data-radix-popper-content-wrapper]')
+      ) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    const handleUserScroll = () => {
+      setIsMobileMenuOpen(false)
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+    window.addEventListener('wheel', handleUserScroll, { passive: true })
+    window.addEventListener('touchmove', handleUserScroll, { passive: true })
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown)
+      window.removeEventListener('wheel', handleUserScroll)
+      window.removeEventListener('touchmove', handleUserScroll)
+    }
+  }, [isMobileMenuOpen])
+
   const skills = useMemo(() => {
     return t('skills', { returnObjects: true })
   }, [t])
@@ -84,11 +115,18 @@ function App() {
   const programmingSkills = skills.programming
   const skillCards = useMemo(
     () =>
-      Object.entries(SKILL_CARD_META).map(([key, meta]) => ({
-        ...meta,
-        ...skills[key],
-        key,
-      })),
+      Object.entries(SKILL_CARD_META)
+        .map(([key, meta]) => ({
+          ...meta,
+          ...skills[key],
+          key,
+        }))
+        .sort((leftCard, rightCard) => {
+          const leftCount = leftCard.items?.length ?? 0
+          const rightCount = rightCard.items?.length ?? 0
+
+          return leftCount - rightCount
+        }),
     [skills],
   )
 
@@ -174,7 +212,7 @@ function App() {
     <div className="page">
       <div className="decor decor-one" aria-hidden="true" />
       <div className="decor decor-two" aria-hidden="true" />
-      <header className="topbar">
+      <header ref={topbarRef} className="topbar">
         <a className="brand" href="#home">
           <Sparkles size={14} aria-hidden="true" /> Mariana
         </a>
@@ -215,6 +253,16 @@ function App() {
         <section className="hero hero-card section card" aria-labelledby="hero-title">
           <div className="hero-copy">
             <Badge>{t('hero.role')}</Badge>
+            <div className="hero-mobile-profile" aria-hidden="true">
+              <div className="profile-mobile-frame">
+                <img
+                  src={PROFILE}
+                  alt=""
+                  className="profile-mobile"
+                  decoding="async"
+                />
+              </div>
+            </div>
             <h1 id="hero-title">Mariana Lizette Tovar Salazar</h1>
             <p className="lead">{t('hero.summary')}</p>
             <ul className="meta" aria-label={t('hero.detailsLabel')}>
@@ -229,9 +277,13 @@ function App() {
                 <Phone size={16} aria-hidden="true" />
                 <a href={`tel:${PHONE.replace(/\s+/g, '')}`}>{PHONE}</a>
               </li>
+              <li>
+                <img src="/linkedin-icon.svg" alt="" width="16" height="16" aria-hidden="true" style={{ display: 'inline-block' }} />
+                <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              </li>
             </ul>
             <div className="hero-actions">
-              <Button type="button" onClick={() => window.location.assign('#contact')}>
+              <Button type="button" onClick={() => window.location.assign('#experience')}>
                 {t('hero.ctaPrimary')}
               </Button>
               <Select key={downloadMenuKey} onValueChange={handleDocumentChange}>

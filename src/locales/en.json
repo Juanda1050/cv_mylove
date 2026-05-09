@@ -15,11 +15,11 @@
     "role": "Software Technology Engineering Student",
     "location": "Monterrey, Nuevo León, Mexico",
     "summary": "I promote gender equity in STEM through technology education, student leadership, and projects with social impact.",
-    "ctaPrimary": "Contact me",
-    "ctaSecondary": "Download CV",
+    "ctaPrimary": "View experience",
+    "ctaSecondary": "Resume",
     "documentLabel": "Document",
-    "documentSpanish": "Spanish CV",
-    "documentEnglish": "English resume",
+    "documentSpanish": "Spanish",
+    "documentEnglish": "English",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
     "detailsLabel": "Personal details"
@@ -37,7 +37,7 @@
     {
       "title": "Technology Facilitator – Tecnolochicas Program",
       "organization": "Fundación Televisa",
-      "period": "November 2023 – December 2024",
+      "period": "Nov 2023 – Dec 2024",
       "items": [
         "Taught web development, robotics, mobile app development, and AI classes to middle and high school girls.",
         "Promoted gender equity in technology, impacting more than 250 students in one year.",
@@ -47,7 +47,7 @@
     {
       "title": "President of the Software Technology Engineering Student Group",
       "organization": "Universidad Autónoma de Nuevo León",
-      "period": "July 2023 – Present",
+      "period": "Jul 2023 – May 2025",
       "items": [
         "Led a student group that fostered academic, professional, and social development in the university community.",
         "Planned and coordinated academic events including conferences, workshops, and technology fairs.",
@@ -149,10 +149,10 @@
     "Frontend by Tecnolochicas Pro — December 2023 (Fundación Televisa, Microsoft)"
   ],
   "education": {
-    "degree": "Software Technology Engineering",
+    "degree": "Software Engineering",
     "school": "Universidad Autónoma de Nuevo León",
-    "faculty": "Faculty of Mechanical and Electrical Engineering",
-    "period": "2022 – Present",
+    "faculty": "Facultad de Ingeniería Mecánica y Eléctrica",
+    "period": "Jan 2022 – Jun 2026",
     "languageLevelsTitle": "Levels",
     "languagesTitle": "Languages",
     "languages": [

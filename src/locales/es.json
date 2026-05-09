@@ -15,11 +15,11 @@
     "role": "Estudiante de Ingeniería en Tecnología de Software",
     "location": "Monterrey, Nuevo León, México",
     "summary": "Promuevo la equidad de género en STEM a través de formación en tecnología, liderazgo estudiantil y proyectos con impacto social.",
-    "ctaPrimary": "Contáctame",
-    "ctaSecondary": "Descargar CV",
+    "ctaPrimary": "Ver experiencia",
+    "ctaSecondary": "Curriculum Vitae",
     "documentLabel": "Documento",
-    "documentSpanish": "CV en español",
-    "documentEnglish": "Resume en inglés",
+    "documentSpanish": "Español",
+    "documentEnglish": "Inglés",
     "emailLabel": "Correo",
     "phoneLabel": "Teléfono",
     "detailsLabel": "Datos personales"
@@ -37,7 +37,7 @@
     {
       "title": "Facilitadora en Tecnología – Programa Tecnolochicas",
       "organization": "Fundación Televisa",
-      "period": "Noviembre 2023 – Diciembre 2024",
+      "period": "Nov 2023 – Dic 2024",
       "items": [
         "Impartí clases de desarrollo web, robótica, desarrollo de apps móviles e inteligencia artificial a alumnas de secundaria y preparatoria.",
         "Promoví la equidad de género en tecnología, impactando a más de 250 estudiantes en un año.",
@@ -47,7 +47,7 @@
     {
       "title": "Presidenta del Grupo Estudiantil de Ingeniería en Tecnología de Software",
       "organization": "Universidad Autónoma de Nuevo León",
-      "period": "Julio 2023 – Actual",
+      "period": "Jul 2023 – May 2025",
       "items": [
         "Lideré un grupo estudiantil para impulsar el desarrollo académico, profesional y social de la comunidad universitaria.",
         "Planifiqué y coordiné eventos académicos como conferencias, talleres y ferias tecnológicas.",
@@ -152,7 +152,7 @@
     "degree": "Ingeniería en Tecnología de Software",
     "school": "Universidad Autónoma de Nuevo León",
     "faculty": "Facultad de Ingeniería Mecánica y Eléctrica",
-    "period": "2022 – Actual",
+    "period": "Ene 2022 – Jun 2026",
     "languageLevelsTitle": "Niveles",
     "languagesTitle": "Idiomas",
     "languages": [
