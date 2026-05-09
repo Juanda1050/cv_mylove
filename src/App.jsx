@@ -213,7 +213,11 @@ function App() {
       <div className="decor decor-one" aria-hidden="true" />
       <div className="decor decor-two" aria-hidden="true" />
       <header ref={topbarRef} className="topbar">
-        <a className="brand" href="#home">
+        <a
+          className="brand"
+          href="#"
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+        >
           <Sparkles size={14} aria-hidden="true" /> Mariana
         </a>
         <button
