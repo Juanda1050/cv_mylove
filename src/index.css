@@ -1242,7 +1242,7 @@ h1 {
 }
 
 .download-menu-trigger .select-chevron {
-  color: currentcolor;
+  color: var(--text);
 }
 
 .grid {
