@@ -680,6 +680,7 @@ a {
   background: color-mix(in srgb, var(--surface-muted) 18%, white 82%);
   transition: background 0.2s ease;
   margin-top: 0.3rem;
+  overflow: visible;
 }
 
 .skills-cluster-item:hover {
@@ -711,6 +712,9 @@ a {
   font-weight: 400;
   line-height: 1.5;
   color: var(--text);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .skill-card-icon {
@@ -1229,6 +1233,12 @@ h1 {
   min-width: 11.5rem;
   justify-content: space-between;
   gap: 0.7rem;
+}
+
+.download-menu-trigger span,
+.download-menu-trigger [data-slot="select-value"] {
+  color: var(--text) !important;
+  -webkit-text-fill-color: var(--text) !important;
 }
 
 .download-menu-trigger .select-chevron {
