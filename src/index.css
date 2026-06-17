@@ -42,7 +42,12 @@
 :root.dark .contact-card,
 :root.dark .hero-card {
   background:
-    linear-gradient(140deg, rgba(255, 123, 192, 0.09), rgba(255, 123, 192, 0.03) 40%, transparent 72%),
+    linear-gradient(
+      140deg,
+      rgba(255, 123, 192, 0.09),
+      rgba(255, 123, 192, 0.03) 40%,
+      transparent 72%
+    ),
     var(--card-bg);
 }
 
@@ -66,7 +71,11 @@
 }
 
 :root.dark .badge.language-level-chip {
-  background: linear-gradient(135deg, rgba(123, 188, 255, 0.35), rgba(123, 188, 255, 0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(123, 188, 255, 0.35),
+    rgba(123, 188, 255, 0.2)
+  );
   border-color: rgba(123, 188, 255, 0.45);
   color: #8ec5ff;
 }
@@ -85,11 +94,23 @@ html {
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top right, rgba(244, 170, 205, 0.35), transparent 40%),
-    radial-gradient(circle at left center, rgba(255, 214, 234, 0.2), transparent 32%),
+    radial-gradient(
+      circle at top right,
+      rgba(244, 170, 205, 0.35),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at left center,
+      rgba(255, 214, 234, 0.2),
+      transparent 32%
+    ),
     var(--bg);
   line-height: 1.6;
 }
@@ -312,7 +333,7 @@ a {
   justify-content: flex-start;
 }
 
-.language-switcher .language-switcher-trigger [data-slot='select-value'] {
+.language-switcher .language-switcher-trigger [data-slot="select-value"] {
   flex: 1;
   font-size: 0.88rem;
   font-weight: 700;
@@ -368,7 +389,7 @@ a {
   cursor: pointer;
 }
 
-.select-trigger[data-state='open'] {
+.select-trigger[data-state="open"] {
   border-color: var(--ring);
   box-shadow: 0 0.875rem 1.75rem rgba(228, 90, 162, 0.14);
   transform: translateY(-0.063rem);
@@ -412,14 +433,14 @@ a {
 }
 
 .select-trigger .control-value,
-.select-trigger [data-slot='select-value'] {
+.select-trigger [data-slot="select-value"] {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text);
   text-align: left;
 }
 
-.control-select-compact [data-slot='select-value'] {
+.control-select-compact [data-slot="select-value"] {
   flex: 1;
 }
 
@@ -489,7 +510,7 @@ a {
   background: color-mix(in srgb, var(--surface-muted) 84%, white 16%);
 }
 
-.select-item[data-state='checked'] {
+.select-item[data-state="checked"] {
   color: var(--brand-strong);
 }
 
@@ -514,8 +535,16 @@ a {
 .skills-spotlight {
   overflow: hidden;
   background:
-    radial-gradient(circle at top right, rgba(228, 90, 162, 0.08), transparent 36%),
-    linear-gradient(135deg, color-mix(in srgb, var(--surface) 98%, white 2%), transparent 72%),
+    radial-gradient(
+      circle at top right,
+      rgba(228, 90, 162, 0.08),
+      transparent 36%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface) 98%, white 2%),
+      transparent 72%
+    ),
     var(--surface);
   border-color: color-mix(in srgb, var(--border) 74%, white 26%);
 }
@@ -523,8 +552,16 @@ a {
 .skills-library {
   overflow: hidden;
   background:
-    radial-gradient(circle at top left, rgba(228, 90, 162, 0.06), transparent 26%),
-    linear-gradient(180deg, color-mix(in srgb, var(--surface) 98%, white 2%), transparent 72%),
+    radial-gradient(
+      circle at top left,
+      rgba(228, 90, 162, 0.06),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 98%, white 2%),
+      transparent 72%
+    ),
     var(--surface);
   border-color: color-mix(in srgb, var(--border) 76%, white 24%);
 }
@@ -545,11 +582,22 @@ a {
   border: 0.063rem solid color-mix(in srgb, var(--border) 74%, white 26%);
   border-radius: 1.2rem;
   background:
-    radial-gradient(circle at top right, color-mix(in srgb, var(--cluster-accent) 12%, transparent 88%), transparent 50%),
-    linear-gradient(135deg, color-mix(in srgb, var(--surface-muted) 42%, white 58%), transparent 70%),
+    radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--cluster-accent) 12%, transparent 88%),
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface-muted) 42%, white 58%),
+      transparent 70%
+    ),
     var(--surface);
   box-shadow: 0 0.5rem 1.5rem rgba(228, 90, 162, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .skills-cluster:hover {
@@ -559,13 +607,14 @@ a {
 }
 
 .skills-cluster::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0 auto 0 0;
   width: 0.25rem;
   border-radius: 62.438rem;
   background: var(--cluster-accent);
-  box-shadow: 0 0 0.75rem color-mix(in srgb, var(--cluster-accent) 40%, transparent 60%);
+  box-shadow: 0 0 0.75rem
+    color-mix(in srgb, var(--cluster-accent) 40%, transparent 60%);
 }
 
 .skills-cluster-rose {
@@ -598,7 +647,7 @@ a {
 }
 
 .skills-cluster-header::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -638,7 +687,7 @@ a {
 }
 
 .skills-cluster-item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0.6rem;
   top: 50%;
@@ -676,31 +725,51 @@ a {
 }
 
 .skill-card-icon-rose {
-  background: linear-gradient(135deg, rgba(228, 90, 162, 0.18), rgba(228, 90, 162, 0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(228, 90, 162, 0.18),
+    rgba(228, 90, 162, 0.08)
+  );
   color: #c43f86;
   border: 0.063rem solid rgba(228, 90, 162, 0.2);
 }
 
 .skill-card-icon-gold {
-  background: linear-gradient(135deg, rgba(243, 186, 103, 0.2), rgba(243, 186, 103, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(243, 186, 103, 0.2),
+    rgba(243, 186, 103, 0.1)
+  );
   color: #c18223;
   border: 0.063rem solid rgba(243, 186, 103, 0.25);
 }
 
 .skill-card-icon-violet {
-  background: linear-gradient(135deg, rgba(184, 146, 255, 0.22), rgba(184, 146, 255, 0.12));
+  background: linear-gradient(
+    135deg,
+    rgba(184, 146, 255, 0.22),
+    rgba(184, 146, 255, 0.12)
+  );
   color: #8455df;
   border: 0.063rem solid rgba(184, 146, 255, 0.25);
 }
 
 .skill-card-icon-sky {
-  background: linear-gradient(135deg, rgba(123, 188, 255, 0.22), rgba(123, 188, 255, 0.12));
+  background: linear-gradient(
+    135deg,
+    rgba(123, 188, 255, 0.22),
+    rgba(123, 188, 255, 0.12)
+  );
   color: #327fd6;
   border: 0.063rem solid rgba(123, 188, 255, 0.25);
 }
 
 .skill-card-icon-mint {
-  background: linear-gradient(135deg, rgba(95, 211, 179, 0.22), rgba(95, 211, 179, 0.12));
+  background: linear-gradient(
+    135deg,
+    rgba(95, 211, 179, 0.22),
+    rgba(95, 211, 179, 0.12)
+  );
   color: #148a6b;
   border: 0.063rem solid rgba(95, 211, 179, 0.25);
 }
@@ -714,7 +783,9 @@ a {
   padding: 1rem 1rem 0.95rem;
   border-radius: 1rem;
   border: 0.063rem solid color-mix(in srgb, var(--border) 76%, white 24%);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), transparent), var(--surface);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), transparent),
+    var(--surface);
   box-shadow: 0 0.625rem 1.5rem rgba(228, 90, 162, 0.06);
 }
 
@@ -786,23 +857,43 @@ a {
 .education-card {
   width: 100%;
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface) 98%, white 2%), transparent 70%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface) 98%, white 2%),
+      transparent 70%
+    ),
     var(--surface);
 }
 
 .education-card-main {
   flex: 1.25;
   background:
-    radial-gradient(circle at top right, rgba(228, 90, 162, 0.1), transparent 38%),
-    linear-gradient(135deg, color-mix(in srgb, var(--surface) 98%, white 2%), transparent 72%),
+    radial-gradient(
+      circle at top right,
+      rgba(228, 90, 162, 0.1),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface) 98%, white 2%),
+      transparent 72%
+    ),
     var(--surface);
 }
 
 .education-card-languages {
   flex: 1;
   background:
-    radial-gradient(circle at top right, rgba(78, 146, 217, 0.08), transparent 38%),
-    linear-gradient(135deg, color-mix(in srgb, var(--surface) 98%, white 2%), transparent 72%),
+    radial-gradient(
+      circle at top right,
+      rgba(78, 146, 217, 0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface) 98%, white 2%),
+      transparent 72%
+    ),
     var(--surface);
 }
 
@@ -902,7 +993,11 @@ a {
   border: 0.063rem solid color-mix(in srgb, var(--border) 74%, white 26%);
   border-radius: 1rem;
   background:
-    linear-gradient(135deg, color-mix(in srgb, rgba(123, 188, 255, 0.16) 55%, white 45%), transparent 72%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, rgba(123, 188, 255, 0.16) 55%, white 45%),
+      transparent 72%
+    ),
     var(--surface);
 }
 
@@ -958,7 +1053,9 @@ a {
   padding-bottom: 0.65rem;
   border-bottom: 0.188rem solid var(--brand);
   color: var(--brand);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .hero {
@@ -974,18 +1071,26 @@ a {
   padding: clamp(1.35rem, 3vw, 2rem);
   border-radius: 1.75rem;
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--surface) 95%, white 5%), transparent 70%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface) 95%, white 5%),
+      transparent 70%
+    ),
     var(--surface);
 }
 
 .hero-card::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: auto -10% -35% auto;
   width: 15rem;
   height: 15rem;
   border-radius: 62.438rem;
-  background: radial-gradient(circle, rgba(244, 170, 205, 0.18), transparent 68%);
+  background: radial-gradient(
+    circle,
+    rgba(244, 170, 205, 0.18),
+    transparent 68%
+  );
   pointer-events: none;
 }
 
@@ -1003,7 +1108,11 @@ a {
   width: 6rem;
   border-radius: 1rem;
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--surface-muted) 88%, white 12%), transparent),
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--surface-muted) 88%, white 12%),
+      transparent
+    ),
     color-mix(in srgb, var(--surface) 88%, white 12%);
   border: 0.063rem solid color-mix(in srgb, var(--border) 78%, white 22%);
   box-shadow: var(--shadow);
@@ -1045,7 +1154,11 @@ h1 {
   padding: 0.9rem;
   border-radius: 2rem;
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--surface-muted) 88%, white 12%), transparent),
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--surface-muted) 88%, white 12%),
+      transparent
+    ),
     color-mix(in srgb, var(--surface) 88%, white 12%);
   border: 0.063rem solid color-mix(in srgb, var(--border) 78%, white 22%);
   box-shadow: var(--shadow-strong);
@@ -1094,6 +1207,14 @@ h1 {
 .meta a:hover,
 .meta a:focus-visible {
   color: var(--brand);
+}
+
+.hero-role {
+  margin: 0 0 0.6rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 600;
+  color: var(--brand-strong);
+  letter-spacing: 0.01em;
 }
 
 .hero-actions {
@@ -1156,7 +1277,7 @@ h1 {
 }
 
 .card-header::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 1.45rem;
@@ -1290,14 +1411,18 @@ h1 {
   border: 0.063rem solid color-mix(in srgb, var(--border) 74%, white 26%);
   border-radius: 0.85rem;
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--surface-muted) 34%, white 66%), transparent 70%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface-muted) 34%, white 66%),
+      transparent 70%
+    ),
     var(--surface);
   color: var(--text);
   line-height: 1.45;
 }
 
 #experience .card-content li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0.72rem;
   top: 50%;
@@ -1312,7 +1437,11 @@ h1 {
 #experience .card-content li:hover {
   border-color: color-mix(in srgb, var(--ring) 88%, white 12%);
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--surface-muted) 46%, white 54%), transparent 70%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface-muted) 46%, white 54%),
+      transparent 70%
+    ),
     var(--surface);
 }
 
@@ -1333,7 +1462,11 @@ h1 {
   border: 0.063rem solid color-mix(in srgb, var(--border) 76%, white 24%);
   border-radius: 1rem;
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--surface-muted) 38%, white 62%), transparent 70%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface-muted) 38%, white 62%),
+      transparent 70%
+    ),
     var(--surface);
 }
 
@@ -1374,8 +1507,16 @@ h1 {
 .contact-card {
   overflow: hidden;
   background:
-    radial-gradient(circle at top right, rgba(228, 90, 162, 0.08), transparent 32%),
-    linear-gradient(135deg, color-mix(in srgb, var(--surface) 97%, white 3%), transparent 72%),
+    radial-gradient(
+      circle at top right,
+      rgba(228, 90, 162, 0.08),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface) 97%, white 3%),
+      transparent 72%
+    ),
     var(--surface);
 }
 
@@ -1423,7 +1564,11 @@ h1 {
 }
 
 .contact-method-icon-linkedin {
-  background: linear-gradient(135deg, rgba(63, 140, 255, 0.2), rgba(63, 140, 255, 0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(63, 140, 255, 0.2),
+    rgba(63, 140, 255, 0.08)
+  );
   color: #2f74c2;
 }
 
@@ -1445,7 +1590,6 @@ h1 {
   font-weight: 600;
   overflow-wrap: anywhere;
 }
-
 
 .badge {
   display: inline-flex;
@@ -1469,7 +1613,11 @@ h1 {
 .badge.language-level-chip {
   min-width: 4rem;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(123, 188, 255, 0.34), rgba(123, 188, 255, 0.16));
+  background: linear-gradient(
+    135deg,
+    rgba(123, 188, 255, 0.34),
+    rgba(123, 188, 255, 0.16)
+  );
   color: #2f74c2;
   border-color: rgba(78, 146, 217, 0.55);
 }
@@ -1580,7 +1728,8 @@ footer {
   }
 
   .topbar-nav a {
-    box-shadow: inset 0 0.063rem 0 color-mix(in srgb, var(--brand) 28%, transparent);
+    box-shadow: inset 0 0.063rem 0
+      color-mix(in srgb, var(--brand) 28%, transparent);
   }
 
   .topbar-nav a:hover,
@@ -1605,7 +1754,8 @@ footer {
   }
 
   :root.dark .topbar-nav a {
-    box-shadow: inset 0 0.063rem 0 color-mix(in srgb, var(--brand) 38%, transparent);
+    box-shadow: inset 0 0.063rem 0
+      color-mix(in srgb, var(--brand) 38%, transparent);
   }
 
   :root.dark .topbar-nav a:hover,
@@ -1742,7 +1892,6 @@ footer {
     grid-column: 1;
     justify-self: start;
   }
-
 }
 
 @media (max-width: 40rem) {
@@ -1821,7 +1970,12 @@ footer {
 :root.dark .education-card-languages,
 :root.dark .contact-card {
   background:
-    linear-gradient(140deg, rgba(255, 123, 192, 0.08), rgba(255, 123, 192, 0.03) 42%, transparent 72%),
+    linear-gradient(
+      140deg,
+      rgba(255, 123, 192, 0.08),
+      rgba(255, 123, 192, 0.03) 42%,
+      transparent 72%
+    ),
     var(--card-bg);
 }
 
@@ -1853,7 +2007,11 @@ footer {
 }
 
 :root.dark .contact-method-icon-linkedin {
-  background: linear-gradient(135deg, rgba(123, 188, 255, 0.26), rgba(123, 188, 255, 0.14));
+  background: linear-gradient(
+    135deg,
+    rgba(123, 188, 255, 0.26),
+    rgba(123, 188, 255, 0.14)
+  );
   color: #9dd0ff;
   border-color: rgba(123, 188, 255, 0.45);
 }
